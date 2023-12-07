@@ -19,3 +19,11 @@ use Illuminate\Support\Facades\Route;
 });*/
 
 Route::get('names', [App\Http\Controllers\NameController::class, 'names']);
+
+// users routes
+Route::get('/users', [App\Http\Controllers\UserController::class, 'index']);
+
+// vehicles routes
+Route::get('/vehicles', [App\Http\Controllers\VehicleController::class, 'index']);
+
+// garage routes

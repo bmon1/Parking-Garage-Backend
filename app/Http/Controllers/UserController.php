@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Vehicle;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class VehicleController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-    { {
-            $vehicles = Vehicle::all();
+    {
+        // Retrieve all users from the database
+        $users = User::all();
 
-            return response()->json(['vehicles' => $vehicles]);
-        }
+        // Return a view or JSON response with the list of users
+        return response()->json(['users' => $users]);
     }
 
     /**
