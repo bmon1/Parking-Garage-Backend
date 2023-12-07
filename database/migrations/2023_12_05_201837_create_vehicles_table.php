@@ -21,9 +21,9 @@ return new class extends Migration
             $table->string('color');
             $table->string('license_plate');
             $table->boolean('currently_parked');
-            $table->unsignedBigInteger('parked_in_garage');
+            $table->unsignedBigInteger('parked_in_garage')->nullable();
             $table->foreign('parked_in_garage')->references('id')->on('garages');
-            $table->timestamp('entered_garage');
+            $table->timestamp('entered_garage')->nullable();
             $table->timestamps();
         });
     }

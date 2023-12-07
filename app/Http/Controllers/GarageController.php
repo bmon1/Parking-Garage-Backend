@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Vehicle;
+use App\Models\Garage;
 use Illuminate\Http\Request;
 
-class VehicleController extends Controller
+class GarageController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $vehicles = Vehicle::all();
+        $garages = Garage::all();
 
-        return response()->json(['vehicles' => $vehicles]);
+        return response()->json(['garages' => $garages]);
     }
 
     /**
