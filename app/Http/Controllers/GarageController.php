@@ -13,7 +13,7 @@ class GarageController extends Controller
      */
     public function index()
     {
-        $garages =  Garage::all();
+        $garages = Garage::all();
 
         return response()->json(['garages' => $garages]);
     }
