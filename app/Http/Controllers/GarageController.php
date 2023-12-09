@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Garage;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
 
 class GarageController extends Controller
 {
+    use SoftDeletes;
     /**
      * Display a listing of the resource.
      */
@@ -38,7 +40,9 @@ class GarageController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $garage = Garage::findOrFail($id);
+
+        return response()->json(['garage' => $garage]);
     }
 
     /**
@@ -62,6 +66,10 @@ class GarageController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $garage = Garage::findOrFail($id);
+
+        $garage->delete();
+
+        return response()->json(['message' => 'Garage deleted successfully']);
     }
 }

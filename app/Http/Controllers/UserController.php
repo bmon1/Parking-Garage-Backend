@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    use SoftDeletes;
     /**
      * Display a listing of the resource.
      */
@@ -40,7 +42,9 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        return response()->json(['user' => $user]);
     }
 
     /**
@@ -64,6 +68,10 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $user->delete();
+
+        return response()->json(['message' => 'User deleted successfully']);
     }
 }

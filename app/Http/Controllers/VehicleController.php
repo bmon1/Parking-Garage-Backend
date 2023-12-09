@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Vehicle;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
 
 class VehicleController extends Controller
 {
+    use SoftDeletes;
     /**
      * Display a listing of the resource.
      */
@@ -38,7 +40,9 @@ class VehicleController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $vehicle = Vehicle::findOrFail($id);
+
+        return response()->json(['vehicle' => $vehicle]);
     }
 
     /**
@@ -62,6 +66,10 @@ class VehicleController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $vehicle = Vehicle::findOrFail($id);
+
+        $vehicle->delete();
+
+        return response()->json(['message' => 'Vehicle soft deleted successfully']);
     }
 }

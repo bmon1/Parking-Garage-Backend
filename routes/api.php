@@ -24,26 +24,26 @@ Route::get('names', [App\Http\Controllers\NameController::class, 'names']);
 Route::get('/users', [App\Http\Controllers\UserController::class, 'index']);
 // Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create']);
 // Route::get('/users', [App\Http\Controllers\UserController::class, 'store']);
-// Route::get('/users/{id}', [App\Http\Controllers\UserController::class, 'show']);
+Route::get('/users/{id}', [App\Http\Controllers\UserController::class, 'show']);
 // Route::get('/users/{id}/edit', [App\Http\Controllers\UserController::class, 'edit']);
 // Route::get('/users/{id}', [App\Http\Controllers\UserController::class, 'update']);
-// Route::get('/users/{id}', [App\Http\Controllers\UserController::class, 'destroy']);
+Route::delete('/users/{id}', [App\Http\Controllers\UserController::class, 'destroy']);
 
 
 // vehicles routes
 Route::get('/vehicles', [App\Http\Controllers\VehicleController::class, 'index']);
 // Route::get('/vehicles/create', [App\Http\Controllers\VehicleController::class, 'create']);
 // Route::get('/vehicles', [App\Http\Controllers\VehicleController::class, 'store']);
-// Route::get('/vehicles/{id}', [App\Http\Controllers\VehicleController::class, 'show']);
+Route::get('/vehicles/{id}', [App\Http\Controllers\VehicleController::class, 'show']);
 // Route::get('/vehicles/{id}/edit', [App\Http\Controllers\VehicleController::class, 'edit']);
 // Route::get('/vehicles/{id}', [App\Http\Controllers\VehicleController::class, 'update']);
-// Route::get('/vehicles/{id}', [App\Http\Controllers\VehicleController::class, 'destroy']);
+Route::delete('/vehicles/{id}', [App\Http\Controllers\VehicleController::class, 'destroy']);
 
 // garage routes
 Route::get('/garages', [App\Http\Controllers\GarageController::class, 'index']);
 // Route::get('/garages/create', [App\Http\Controllers\GarageController::class, 'create']);
 // Route::get('/garages', [App\Http\Controllers\GarageController::class, 'store']);
-// Route::get('/garages/{id}', [App\Http\Controllers\GarageController::class, 'show']);
+Route::get('/garages/{id}', [App\Http\Controllers\GarageController::class, 'show']);
 // Route::get('/garages/{id}/edit', [App\Http\Controllers\GarageController::class, 'edit']);
 // Route::get('/garages/{id}', [App\Http\Controllers\GarageController::class, 'update']);
-// Route::get('/garages/{id}', [App\Http\Controllers\GarageController::class, 'destroy']);
+Route::delete('/garages/{id}', [App\Http\Controllers\GarageController::class, 'destroy']);
