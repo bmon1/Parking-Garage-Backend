@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 
 class GarageController extends Controller
 {
-    use SoftDeletes;
     /**
      * Display a listing of the resource.
      */
